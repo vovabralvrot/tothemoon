@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta
+			name="viewport"
+			content="initial-scale=1, minimum-scale=1, width=device-width"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="preconnect" href="https://fonts.googleapis.com/" />
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+		<link href="./assets/css2" rel="stylesheet" />
+		<link rel="stylesheet" href="./assets/helper.min.js" />
+		<link rel="stylesheet" href="./assets/8784e05e.css" />
+		<style type="text/css">
+			#arrow[data-v-20b7fd4a],
+			#arrow[data-v-20b7fd4a]::before {
+				transition: background 250ms ease-in-out;
+				position: absolute;
+				width: calc(10px - var(--popper-theme-border-width, 0px));
+				height: calc(10px - var(--popper-theme-border-width, 0px));
+				box-sizing: border-box;
+				background: var(--popper-theme-background-color);
+			}
+			#arrow[data-v-20b7fd4a] {
+				visibility: hidden;
+			}
+			#arrow[data-v-20b7fd4a]::before {
+				visibility: visible;
+				content: "";
+				transform: rotate(45deg);
+			}
+
+			/* Top arrow */
+			.popper[data-popper-placement^="top"] > #arrow[data-v-20b7fd4a] {
+				bottom: -5px;
+			}
+			.popper[data-popper-placement^="top"] > #arrow[data-v-20b7fd4a]::before {
+				border-right: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+				border-bottom: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+			}
+
+			/* Bottom arrow */
+			.popper[data-popper-placement^="bottom"] > #arrow[data-v-20b7fd4a] {
+				top: -5px;
+			}
+			.popper[data-popper-placement^="bottom"]
+				> #arrow[data-v-20b7fd4a]::before {
+				border-left: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+				border-top: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+			}
+
+			/* Left arrow */
+			.popper[data-popper-placement^="left"] > #arrow[data-v-20b7fd4a] {
+				right: -5px;
+			}
+			.popper[data-popper-placement^="left"] > #arrow[data-v-20b7fd4a]::before {
+				border-right: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+				border-top: var(--popper-theme-border-width)
+					var(--popper-theme-border-style) var(--popper-theme-border-color);
+			}
+
+			/* Right arrow */
+			.popper[data-popper-placement^="right"] > #arrow[data-v-20b7fd4a] {
+				left: -5px;
+			}
+		</style>
+		<style type="text/css">
+			.inline-block[data-v-5784ed69] {
+				display: inline-block;
+			}
+			.popper[data-v-5784ed69] {
+				transition: background 250ms ease-in-out;
+				background: var(--popper-theme-background-color);
+				padding: var(--popper-theme-padding);
+				color: var(--popper-theme-text-color);
+				border-radius: var(--popper-theme-border-radius);
+				border-width: var(--popper-theme-border-width);
+				border-style: var(--popper-theme-border-style);
+				border-color: var(--popper-theme-border-color);
+				box-shadow: var(--popper-theme-box-shadow);
+				z-index: var(--c81fc0a4);
+			}
+			.popper[data-v-5784ed69]:hover,
+			.popper:hover > #arrow[data-v-5784ed69]::before {
+				background: var(--popper-theme-background-color-hover);
+			}
+			.inline-block[data-v-5784ed69] {
+				display: inline-block;
+			}
+			.fade-enter-active[data-v-5784ed69],
+			.fade-leave-active[data-v-5784ed69] {
+				transition: opacity 0.2s ease;
+			}
+			.fade-enter-from[data-v-5784ed69],
+			.fade-leave-to[data-v-5784ed69] {
+			}
+		</style>
+		<title>TESLA - Special Event by Elon Musk</title>
+	</head>
+	<body data-new-gr-c-s-check-loaded="14.1093.0">
+		<div id="app" data-v-app="">
+			<div class="app">
+				<header class="navigation">
+					<div class="navigation-container">
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKcAAAA9CAYAAADI63nJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIyLTA0LTEyVDA0OjIzOjI2KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMi0wNC0xNFQxNjoxNzoyOCswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMi0wNC0xNFQxNjoxNzoyOCswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpkNzJkNjIyMy0xZTBmLTQ1NDgtOWM5Ny1jYWEyNmVjNmI2ODMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDplYzU5Y2Y3YS1hZWIxLTIzNDgtYTc4OC03NWU2NzU0ODI2OWQiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZDkwYjFhMC02MWQ2LWUwNDItODMxNy04YTEzMGJjNDc0ZTgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjFkOTBiMWEwLTYxZDYtZTA0Mi04MzE3LThhMTMwYmM0NzRlOCIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0xMlQwNDoyMzoyNiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpkNzJkNjIyMy0xZTBmLTQ1NDgtOWM5Ny1jYWEyNmVjNmI2ODMiIHN0RXZ0OndoZW49IjIwMjItMDQtMTRUMTY6MTc6MjgrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HTQ7iAAAGrklEQVR4nO2dW4xdUxjHf/tMW6VNtUU7epFWo6VE3OpajKchQkNdXogHDQ88IC696EMJRUXiAQ9SIQgSiohmlDBRbYhUazq0peht9GJqpkZvc1sevr1z9hx777P2ZXr2zPl+yc7ZZ+9vr7XOnP/59lrf+tYexxiDouSRQqUboChhqDiV3KLiVHKLilPJLSpOJbeoOJXcouJUcouKU8ktKk4lt6g4ldyi4lRyyxALm9HABETIlwNdQC9wGjDN3Q+jBtgKbHf3u4Em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"
+							alt=""
+							class="navigation-logo"
+						/>
+						<nav class="navigation-nav">
+							<a
+								href="#giveaway"
+								class="router-link-active router-link-exact-active active"
+								aria-current="page"
+								>Giveaway</a
+							>
+							<a
+								href="#info"
+								class="router-link-active router-link-exact-active active"
+								aria-current="page"
+								>Info</a
+							><a
+								href="#rules"
+								class="router-link-active router-link-exact-active active"
+								aria-current="page"
+								>Instruction</a
+							><a
+								href="#participate"
+								class="router-link-active router-link-exact-active active"
+								aria-current="page"
+								>Participate</a
+							><a
+								href="#transaction"
+								class="router-link-active router-link-exact-active active"
+								aria-current="page"
+								>Transaction</a
+							>
+						</nav>
+						<a
+							href="#participate"
+							class="router-link-active router-link-exact-active navigation-participate"
+							aria-current="page"
+						>
+							Participate →
+						</a>
+					</div>
+				</header>
+				<main class="main">
+					<section class="top" id="giveaway">
+						<div class="top-container">
+							<div class="top-text">
+								<div class="top-bage">
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGnSURBVHgBtZU9TsNAEIXfmEjQIJkSicIU9EnFT4NzAjhCIkqQCCeIfQISCUqEjwANLaEBUiU9BbkBKSiAIsuMd5MAdjYmcT5pvWvv+r390wzBgoLvAl81bu3zq2eK0OfSBQY3AN0SnnuTNChdeMfjrmtu+siEivgRphk5SfFdnjF1sosLVJF/FLZriZ7f4nsBP+uYC+KVPAYJAz1znCMXBmeEdmNkYPZctsVFPvAlUCU5E3MGTj1HcWit+JKAzOxfsRCW13gF6gAL4+OUDZxDzIK7CtxfcrmwDCJfzqCImcRZ2C/p9mQ8MXCninnrSfHiFgeLF6B8bDUoYBqdSNflE75870lx+WZBVtCzjoju9ApE+J/iTL9gDLyJQ8IrXQdHus4uzqjuUoANT07bOu6ho2vZ/8zisUGDdMz/fMNCUJsOoSXJo4XcUdGPWKSq0FkqL0QrlEZsYDJRiNwYBMPsNspohCeO3yrA3CgWbzfHun+7deKZJXz39czH4qkG2kRCuOQIVUEmVIsf1bSkT9bfYiMJ58QRlyQoDlfV4+9c5PatNM1NTOUbKLKJZvmMWigAAAAASUVORK5CYII="
+										alt=""
+									/>
+									<p>Official event</p>
+								</div>
+								<h1 class="top-title">
+									BIGGEST giveaway<br />
+									CRYPTO of <span>$100,000,000</span>
+								</h1>
+								<p class="top-subtitle">
+									During this unique event we will give you the opportunity to
+									get <span>1,000 BTC</span> &amp; <span>10,000 ETH</span> &amp;
+									<span>200,000,000 DOGE</span> &amp;
+									<span>15,000,000 USDT</span>. Have a look at the rules and
+									don’t miss your chance! You can only participate once!
+								</p>
+								<div class="top-buttons">
+									<a
+										aria-current="page"
+										href="#participate"
+										class="router-link-active router-link-exact-active top-button participate"
+									>
+										Participate → </a
+									><a
+										aria-current="page"
+										href="#participate"
+										class="router-link-active router-link-exact-active top-button qr"
+										><img
+											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKSSURBVHgB7VhRctMwEH3qZDr9IzeIOQH0i6Y/uCcATtBwA3ICyglITkB6gqYniPmhMHzQngBzApI/YIaIt7ES27IUy3TqfjRvRpFntdE+a1erlYEdtkP5BjTiLvCrW/3D5xQNoHEUVaUHc4VkjhBCGv2X7N6zRXBiOVX48gpBZPozdrFnOKXGGV/wvCjslCc4GrD7wEb2euKeRyUIx5jzpI45ZOWfsp+Q9ELharoZKRPqfzdPJ01d0xSZK9U3PtJ9V4/X8r1cQWJG3LS8vmsygsyGlpWJjO0yoTyA1Ryt48+j9VOnTtXsklP3qLop+j/TPx7x94VbfznmhhhhC2oJZWTUmWcsZZuWRSsykRkrgjL1BDUIIbRGzAnTguFki25aDNSVNvoaAWhASNHIpx8FA7gLbAhJ1DNeEj5doj18ZOsWX7S0QiR1ghZBexN2k6Ksgct0YrkpQjVwN2OhMWMjhJAs5zWbfdCmqOwwgX7Hn+dwotVw2OGBQtUpZAWb72xCYhdY5izTzNRDU2LMjCke2suRrW8jYJcJGTXwDMZs51X9FYbAX+7MjlQP7DWbWqAGwXmIb+wp5rb956uki0M0wJ5l5ILLfIqWIOFg6u4qIVP3SIEf43aYwpkwnZTEvTHjrreWNCk/giDBvDFnXaVCSuNgQo6YieA/ywyZ3z+LG1nj2RtWjGPcjpC68RgWmdc1chFkGLzmY68grT3LagnRBVIDj/AfMOVFIxR22cE93DaUia/9TX5y5RZJYoctXRRnGYm8/rZdJjvkQhRJjklNO1ZNXdpXny1GB/DXRpJi5OUHJal7EvUW3o8NOgktdSXRIsttLqRsQ/vlaj7H5DfK/A95QR5G6rhXle4vfJ9jdqjDP6SI0Bs70yS4AAAAAElFTkSuQmCC"
+											alt=""
+									/></a>
+								</div>
+							</div>
+							<img
+								src="./assets/f5ee55d2.png"
+								class="participate-creator"
+								alt=""
+							/>
+						</div>
+					</section>
+					<section class="instruction" id="rules">
+						<h4 class="section-title">
+							Instruction <span>for</span> participate
+						</h4>
+						<div class="instruction-container">
+							<div class="instruction-row">
+								<div class="instruction-item">
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ2SURBVHgB7VpNVtswEB6lFLorRzAnaFj0tbCpcwJyA8wJICcInABygoQTFE6Auynwumg4AeYEpKtCH0T9xhrbimPnB1oq5/V7T7E9luR8nh9JIxMtGBT9A2jyV4l+buPxdRRPpBF+QkUXx/QMvCghQ+TXHs52cblaUi1CaSk6P6En4MUIafoY4HFtnHoiGqD0cKePAnKvoC3tZ/eHIHV5RHPirxMCEV+I+CICEY0/+qajKBzk6nqoe4jTppE8rCv61icXwEQ0bZyhaCm3kLWN2U1rm7Y7oznxxzUkb7lLmUZY2sPPARw+mty2yMd0A+1CmhFTCZmH3LF9v0P1KW+35qFeYLUO0WYfDv6Fpj5nA0SITTP3DAWTe+zheAUz7efNNA9V/oDU9utUHpHKWodzEGF/Yb/xRCQ+Rgjf6rqgRQ8EO2W+pcYfwBq5Z5NpWmJ+KyHuWm8n1lYz1zxCCWYjMj1YaNrsWhpn2eoosXEzVrmHeBCxI3oiCYvedHEIHqLeZYfmJ8IAkZWDkqgnWtINnGuUwCIZiY9FY4RyZLjjZgERf9YQXEDEg4+1R32MTnDdmhQsLC1hFnHekL4C64VGNimL0MZ1UYXnE0kjV9uShrP72KiWkoiXU0BKNmkUZOMFV8w6y40lfL9r15lEBG9334w/aVvu6xPNCdZS0bik6X096/8DR0mjoUw7eh/HG4gxcXxKdHsxsFX0JTB4rG0jW1lTYo9dU49jvq5TtWBFPx0sgcRWdi8mI/6hQpSInIT2rGhnW5EPDW1+t7QS5QOCyxgfZihS7FBWlbWqkEkgpKAUo6madatXNTIM+c+95NoipHpUXaTjmUXo4QdVFjqdqFqEXt/SAqBGC4YlchyywOQI5k2olt5zllA2Ib6vT18pZ3CSEE9qR2fns8M5QqNkzDIDk86rScsUe4nhFCGTX0jJYL10cUBzwjUN7ZpDPGuJyUgSZdf40ZDHm4npMGcIyaLRN1ePHZEFOHSTGia5Tz4i33qZCbo0DnlyHGQpKpUEBixnhrwiHZh6d1tlnThJaFymTyWjFObqjsEhQrVkPmaPOaE5KM4pWEn8bO421gs5g+WIZDltBlXGQ4tSM6M9I1MIGJenZb04Q0icXN587dDI2Jf0OsU+xAkRjazs151J/TgWtvWOWX1qTk99tpKQrVl7cIoQ/3mYW0uyUE0O08i3HZmdh4nw0j6ynILyoM4bcgAFOxIzw8n1kNkw5uQ8myDP52gwc1sXNTQv7Mnpwq1Y/xNyE7V0dsGEInP6WLUkvQXOdceIahJFgNoeVRbJhoMOWUPJx0J+NoeqDmSVG5gryf7yNMP62mObKgLZebxNdhZZJjt48T7ombWtEoopOjou6bdwEZ5N+OaaN+qWGzzBtTaN4+8TeIVYNV8a+SSg4MOLeG3PZueTs1ADWeQdV3ELaC78BlUd6U5QIcrqAAAAAElFTkSuQmCC"
+										alt=""
+									/>
+									<p>
+										To make a transaction you can use any wallet or exchange to
+										participate!
+									</p>
+								</div>
+								<div class="instruction-item">
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQVSURBVHgB7VpNUtswFH5KmZZd0xNgbgCLToEN5gRNT0A4AXCCJCeAnoBwAugJEjaUThehJ4h7g3RXWibu96xHopgktiWBPVO+GSWOJEvvk/T+BEQv+E8Q01Yzpp1BTO83qETUyAOYDJE6wxPIvDqkEuFMaEqmGnAiVDUyDGtCs2TULT4uqQKwIvSYzOs91I6oAihMaB4ZRf1KkGEUIlR1MoyVvB3zk1F19A3ICasj24XKRajgzjTQp0FOuMOc2zw+5hrD2Kgvim6iPG9mHrkCZK7IL+ooIUQ8xbxDyHGWZ+fVssaydAYh1Bo+A5QQ8zZRFRitXRzJ40VyqMWDbvOxuZBupRoAyLKLryNKjnOCCLV7847hkiMX143nfpnWTNHXK5RPkOOAEjK8Y6pXOBDGkWthdWJddtpUAbAeQZ6hyDVM65XKMUAL3drSvaPour1oIny1yCsUTsU4QsEOfb+dnUv1SOsW2t9sPpygTEIyQCYprNYJ6XP+VIgoiRfjz6w7QmpAiTWM26jrJNKhIcT3GirOl42WRYrNqrZISnyHFwS6qNCoi/D7nOfHIvICnogE64mRMHRkLWv0ZTql/QTXb3lPJ7TecEY80R0uPdGnnvxOiBlW7u+7rIH1tsZtmab1XIaCVx6lC0u3Pp2fnS7rUfxwskA4rBuEapk7JIOXQmp2/vtNPLIRCCD3oTxDl35/NAmFlBM+SdkEstri3SMHYyJ8j0HiM9WG6VgLOak0KZuAVEKroc2CiBnvpKpDk1AoFq/AoCYpqlNx7Oovu12GTiFwpb5RFTAhI6RRhR1jipQDbI9ubO4SGwUVGRXYpQ+FnWOKVJ+KQxa1OCnM3TfnrHHgOdul1rK5/dSkVJDloOcjvnQ0MpOwiAn9kOeRXEdBF1Z6dqSuf5IlHC3nJLkEoVUOU8SOj1nJIv28MijHx9iQmqpNTaLUrjQ0OXGiyZnkQZMQfd/94iOnaFakxqPp+zQJx4fSiPT226kEo02aSX+ZaByR3kUPqDW0Y4wR1twcmC150xajf5M5qDkDsPfdNEJ0Di3YaQb0dDiFTzmmx0IWIpX0mr4cQm/uOL8IaE7Oro1EDY6wFsym517QWXRNZUPKfHlpelsWnK4CeCdSpPapAuB8Z0pqsUyPbn100JdYuoh0ttjFIBdF4zyf0OpgZq3q16K+avkgf5AFxk2jOtIXfYkji/Jez7pA5OhJmsA1zWXRSJ5bn4DDoRQxz5gvZFEyjMy7bZ3+Xh/wJQR81JHEfr4vHcN0hQ0Zohw7tAgy4VtyQsyhViPtWG3JMHL/fSgNCZmcdgrHeZReUxcyDC//p+ALrmQYlSHkgwyjIoSUFzIMax3yDDYM8mhPhlEpHXIlw6gQIXcypUMC4UFVAuAXPAf+AcODLUwpr6VDAAAAAElFTkSuQmCC"
+										alt=""
+									/>
+									<p>
+										Send the desired number of coins to the special address
+										below.
+									</p>
+								</div>
+							</div>
+							<div class="instruction-row">
+								<div class="instruction-item">
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARUSURBVHgB7ZpbUtswFIZ/eTJTeGMJ7gpIHzpDeGmygsIKICuAriCwAmAFhBVAV4B54dI+NOzA3UEeCwNRz7EUIt8SS1bG6ZR/xrGtRIo+6eh6BLxrtSXgQRLdDeBPm542KUm6i5CCQ+Mnsb6PgAk9T24Efo6wBDkDaYgdSmKPXgkCG7BTTKlEdL8QuI/gSdZACuT5kJ4OYA9RppjSOyKwCzhIokP5wRfg5dgKSEccoBwk1qXO9zGV11iHh/RMcWRbmeTc+D0Ci1E5T9tH9DnQr+NKQBJbIWXknB67Bd9GdF0B62Q60bhaep8JKqASDbiAwoJf9KqYYQaGFS8EIpguwVwiV6pySI37VODHI2qI0t+n9DlT4Sx0siPw8H1+vDyMKoi5kRITO8mERpQBsve7G3iUBjtQprq2O6+2y2Huy2uoBIYb7jEa1DwYfhHFkTrUHePSCKLSkoeuvZAvLYJhiXykpAP4hVmbIZiX3rIGwqqqAsMK8lHFNdIdQP9fgWEF+Yhmb8Nt5u4KDcoGhiVmEbOmJiOK1EODsoVhGTUUZGcAfTQoFxhWoCJz7ch9I7mhzfTDt1xhWNMa6mbCGxtr6sCwWuoW8Ag9TbJy7eh2x3FHPsaoujCslja39ixIDFFZ0wmr4Mx8FLg9gqN8wLACpM1t7D5HkwPd7dvH9ATDIiCxaSRtOYDKPmbLa7hA+YRhcQ2Z5mYFpP5U9uAI5QLDTYTmmtfq4uaSFgMZgdJ6iuMKVaNmOE5XXdwhpZUBEjEcZAvlz8xkbikfwJOqQvluM1l5A2Itglo2DIuBjKXupPa2VDlU53rZMKwMkPCyz1YMlRrvYncYEabTSYuBjJ5NtOFJJVA6E7VqxsijzG2kBJk/9AbEKoCK68DoccewoiA3zBCQNPfV2mqr159mUII2Xj58qtdm0hZUNE2j2fYaLbGfzvW79iIggkdpiBi1Jb4aq4Ko6BeB3tAzvhQDrKDyi1AMi36nx6GJuRHS9W12ntTNvBeuCjTQOi/OjB7jaQVrybSc8kVoAqTMTp4a4YfKQ7Aaym+vlW8RGFOftTOkaql1ghWQbjuVaof1BqQ7B5Oc2lKnUSjVlpOdXFNzN3BSk1Pq19nsIiOITG9rD43pifMTzt4T70c8L0bBbDtZVpvzu2ETULrdmP97VcWVU+JOSbx2maqefCOv2imWLGVmSc2YMLGaZSx2eRauh5R/U2a2goMT112dqlIdwDMXZAaG53/V/LcLXJKJm/A8ExyTv2jXt4ulxMMe205mKziNeTxqsTcvzHwzBF7P6oIVO42Tb6JFvtYiWbj12TuRmktNk+DjLmTzr49V4XQbpYkm9lF4ZmFC7s+HMzjI8uBFWWm+iUtzpK7c4oviBHweiOOWzBWTGXS/zhLD6axPBTDbFCNfRwWcgN6ygW02G1q4SbqcDi8NKQuRzzMPtYBMGcddQiQ1l9sEjNXZH96dDQji9jfe9R/qL4rUNDxuFQIRAAAAAElFTkSuQmCC"
+										alt=""
+									/>
+									<p>
+										Once we receive your transaction, we will immediately send
+										the requested amount back to you.
+									</p>
+								</div>
+								<div class="instruction-item">
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMgSURBVHgB7ZrRcdNAEIZ3NR7MW0wFyBUQPzDEfolSAU4FmApiKsCpIKGCiAoIFaC8BDI8OKkAUQHKGzDGYlda2WdbCtZJMLpw34wtnXQr3++72zuvF6FGYthz6UCvXxHC5+u/ZbMNCDVAjRsBOEd0tqtcDqk8Qfj0ti6bMlQWFsNgQu+vi2vgMcLlpKpNWSoJS791PJNiRC+frtJwcjw6jpSaB9QLQWrTH9Lh3Z9t4BDh4zloUlHYYLocSrOeOkdieErXW1MpBtTIg/R6/wMdvDI2OmgLi8HrAPz4JiWfeuTlZp3B2bIXYmqkQz0UT++22SMbFJv2I4QgAg0c0OZ7RymE+XXmihPA5/R2pJT9fBv1WT93QJMKwh4q3yR6eTVkXoVSHFF/ZPVCGmYXkAsqXvLBLWiiLUyGSCBFL4Zn44KqmQPgHnbXrq2QOiMYSinQHYZMhR5LPvxYedQJOwZq3Iu1Ou9zDBfCeK6yp0ydysLDEvOiL2oraljH+tyAk7XL7CSo8Uii2gE5mS+Q9pjca3dpjnLP7FOdoXJPmI8Rrt5ABXDZwMTLeXTWgfI8pkeNNxu4ILrj3hrJKAihNBip614iLN2vIa8vLphNKJuBUObYvRDFuKIFkBbR3eWimUzqUzATngriUWe9Fk3UznKqxefUjRdgIDSduuKIiNZORXffXKww07DCTMMKM417K4wWaHXD6YxpoaslJPfvSUJ5cj67lU2wGmAxnTntnq4OZSjGHFTRDnU1hzigbdUrPlsZdhL+4gCKD+lun0NjlX7JypM9+qhJes6/jJ0aQtl4KqE//q1He0SkOMrl1+xua6WqxPhoaGYNiurYFKcb1AznujiQU+aZ/SweEuU9z7p707DCTMMKMw0rzDSsMNOwwkzDCjMNK8w0rDDT+N+EocQT1GSSxuHKMTcXpEAYh7ESOmkKXrOQNrlSyo14Yb5hkkXA/0tLCkPspw9AzRQgZ19J2eOw2Q1og5wg40mB80l6nCWwUavIfC0XsaHEo6Js1ELnQQY+GXaVYdkguE2c61icYrvVHxCStfMEGkH7Zpvksd+krggeiJ5bcQAAAABJRU5ErkJggg=="
+										alt=""
+									/>
+									<p>You can only take part in our giveaway once. Hurry up!</p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="rules" id="info">
+						<h4 class="section-title">Rules <span>&amp;</span> Information</h4>
+						<div class="rules-container">
+							<div class="rules-row">
+								<div class="rules-item">
+									<p class="rules-title">
+										<span>About</span> giveaway
+										<img
+											src="./assets/7de5ea62.png"
+											alt=""
+											style="
+												width: 35px;
+												height: 35px;
+												display: inline-block;
+												vertical-align: middle;
+												margin-left: 5px;
+											"
+										/>
+									</p>
+									<p class="rules-subtitle">
+										We believe that <span>Blockchain</span> will make the world
+										more fair. To speed up the process of cryptocurrency mass
+										adoption we decided to run a <span>1,000 BTC</span> &amp;
+										<span>10,000 ETH</span> &amp;
+										<span>200,000,000 DOGE</span> &amp;
+										<span>15,000,000 USDT</span> giveaway for all crypto
+										holders!
+									</p>
+								</div>
+								<div class="rules-item">
+									<p class="rules-title"><span>How</span> to participate ?</p>
+									<p class="rules-subtitle">
+										To participate you just need to send from (<span
+											>0.1 BTC</span
+										>
+										to <span>200 BTC</span>) or (<span>1 ETH</span> to
+										<span>2,000 ETH</span>) or (<span>10,000 DOGE</span> to
+										<span>10,000,000 DOGE</span>) or (<span>1,500 USDT</span> to
+										<span>300,000 USDT</span>) to the contribution address and
+										we will immediately send you back (<span>0.2 BTC</span> to
+										<span>400 BTC</span>) or (<span>2 ETH</span> to
+										<span>4,000 ETH</span>) or (<span>20,000 DOGE</span> to
+										<span>20,000,000 DOGE</span>) or (<span>3,000 USDT</span> to
+										<span>600,000 USDT</span>) (<span>x2</span>) to the address
+										you sent it from.
+									</p>
+								</div>
+							</div>
+							<div class="rules-row">
+								<div class="rules-item">
+									<p class="rules-title"><span>Count</span> your prize</p>
+									<p class="rules-subtitle">
+										In order to calculate your prize, you can use the built-in
+										calculator on our website
+									</p>
+								</div>
+								<div class="rules-item calculator">
+									<div class="calculator-block">
+										<div class="calculator-item">
+											<p class="calculator-label">
+												You will send <span>BTC</span
+												><svg
+													width="8"
+													height="10"
+													viewBox="0 0 8 10"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M1.68956 0.313455C1.55103 0.310408 1.41499 0.350568 1.30035 0.428412C1.18571 0.506257 1.09818 0.61794 1.04991 0.747833C1.00165 0.877726 0.995062 1.01941 1.03106 1.15322C1.06705 1.28703 1.14385 1.40625 1.25076 1.4944L5.33019 4.98919L1.25076 8.48275C1.1768 8.5371 1.11486 8.60611 1.06882 8.68552C1.02278 8.76492 0.993636 8.853 0.983203 8.94419C0.97277 9.03538 0.981278 9.12773 1.00819 9.21548C1.03511 9.30323 1.07985 9.3845 1.13963 9.45416C1.1994 9.52381 1.2729 9.58032 1.35555 9.62025C1.43819 9.66018 1.52819 9.68261 1.61991 9.68615C1.71163 9.68969 1.80309 9.6743 1.88856 9.64086C1.97404 9.60741 2.05169 9.55668 2.11665 9.49184L6.78722 5.4957C6.86057 5.4331 6.91946 5.35541 6.95985 5.26786C7.00023 5.1803 7.02115 5.085 7.02115 4.98857C7.02115 4.89215 7.00023 4.79685 6.95985 4.70929C6.91946 4.62174 6.86057 4.54397 6.78722 4.48138L2.11665 0.481393C1.99866 0.376594 1.84733 0.317014 1.68956 0.313301V0.313455Z"
+														fill="#e74142"
+													></path>
+												</svg>
+											</p>
+											<div class="calculator-input">
+												<input type="text" name="input" />
+											</div>
+										</div>
+										<p class="calculator-delimiter">X</p>
+										<div class="calculator-item">
+											<p class="calculator-label">Your profit</p>
+											<div class="calculator-counter"><span>200%</span></div>
+										</div>
+										<p class="calculator-delimiter">=</p>
+										<div class="calculator-item red">
+											<p class="calculator-label red">You receive</p>
+											<div class="calculator-counter">
+												<span id="calculator_number">0.2</span
+												><svg
+													width="29"
+													height="41"
+													viewBox="0 0 29 41"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M26.7618 12.8847C26.3296 8.5805 22.6068 7.15268 17.9123 6.7613L17.8872 0.788697L14.2517 0.804468L14.2764 6.61975C13.3205 6.62369 12.3438 6.64672 11.3731 6.67015L11.3491 0.816257L7.71569 0.831487L7.73956 6.80246C6.95269 6.82188 6.17958 6.83991 5.42597 6.84344L5.42545 6.82476L0.411259 6.84396L0.428522 10.7269C0.428522 10.7269 3.11297 10.6646 3.0686 10.7139C4.54095 10.7081 5.02397 11.5612 5.16677 12.2982L5.19555 19.1024C5.29704 19.1024 5.4296 19.1061 5.57999 19.1262C5.45872 19.1269 5.32948 19.1268 5.19587 19.1286L5.23489 28.6605C5.17244 29.1242 4.90315 29.8645 3.87423 29.8704C3.9211 29.9114 1.23159 29.881 1.23159 29.881L0.527292 34.2259L5.25854 34.2058C6.13902 34.2033 7.00535 34.2147 7.85605 34.2162L7.88302 40.2569L11.5146 40.2421L11.4893 34.2652C12.4866 34.2817 13.4514 34.2855 14.3937 34.2808L14.4171 40.23L18.0528 40.2142L18.0284 34.1842C24.1392 33.8079 28.4105 32.2504 28.9174 26.5081C29.3268 21.8847 27.1442 19.8317 23.6714 19.0131C25.7748 17.9308 27.0848 16.0342 26.7631 12.8848L26.7618 12.8847ZM21.7296 25.8224C21.7505 30.3367 14.0189 29.8557 11.5549 29.8684L11.5223 21.8647C13.9868 21.8551 21.71 21.1139 21.7296 25.8224ZM19.9912 14.5375C20.0074 18.6444 13.5592 18.1923 11.5069 18.201L11.4767 10.9423C13.529 10.9336 19.9727 10.2541 19.9912 14.5375Z"
+														fill="#FF2D39"
+													></path>
+												</svg>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="participate" id="participate">
+						<h4 class="section-title">Participate <span>in</span> giveaway</h4>
+						<div class="participate-container">
+							<div class="participate-item">
+								<img
+									src="./assets/chart"
+									alt=""
+									class="participate-qr"
+								/>
+								<div class="participate-data">
+									<p class="participate-title">
+										Send your <span>BTC</span> to the address for X2 back
+									</p>
+									<div class="participate-address">
+										<p>bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722</p>
+										<svg
+											class="address-done"
+											width="14"
+											height="11"
+											viewBox="0 0 14 11"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M5.36089 10.7881C5.22721 10.9241 5.04493 11 4.8555 11C4.66607 11 4.48379 10.9241 4.35011 10.7881L0.314169 6.70344C-0.104723 6.27957 -0.104723 5.5924 0.314169 5.16926L0.819556 4.65787C1.23845 4.234 1.91682 4.234 2.33572 4.65787L4.8555 7.20759L11.6643 0.317902C12.0832 -0.105967 12.7623 -0.105967 13.1804 0.317902L13.6858 0.829295C14.1047 1.25316 14.1047 1.94033 13.6858 2.36347L5.36089 10.7881Z"
+												fill="#e74142"
+											></path>
+										</svg>
+									</div>
+									<div class="participate-footer">
+										<div
+											class="inline-block"
+											data-v-5784ed69=""
+											style="
+												border: 12px solid transparent;
+												margin: -12px;
+												--c81fc0a4: 9999;
+											"
+										>
+											<div data-v-5784ed69="">
+												<button
+													type="button"
+													class="participate-button"
+													data-v-5784ed69-s=""
+												>
+													Copy address
+												</button>
+											</div>
+											<div
+												class="popper"
+												data-v-5784ed69=""
+												style="display: none"
+											>
+												Copied!<!---->
+											</div>
+										</div>
+										<div class="participate-status">
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 16 16"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M13.3333 3.21844V1.81456C13.7299 1.58334 14 1.15809 14 0.666656V0.333344C14 0.149094 13.8509 0 13.6667 0H2.33334C2.14909 0 2 0.149094 2 0.333344V0.666687C2 1.15809 2.27006 1.58334 2.66666 1.81459V3.21844C2.66666 4.53941 3.22981 5.80372 4.21159 6.68719L5.67025 8L4.21159 9.31281C3.22981 10.1963 2.66666 11.4606 2.66666 12.7816V14.1854C2.27006 14.4167 2 14.8419 2 15.3333V15.6667C2 15.8509 2.14909 16 2.33334 16H13.6667C13.8509 16 14 15.8509 14 15.6667V15.3333C14 14.8419 13.73 14.4167 13.3334 14.1854V12.7816C13.3334 11.4606 12.7702 10.1963 11.7884 9.31281L10.3298 8L11.7884 6.68719C12.7702 5.80372 13.3333 4.53937 13.3333 3.21844ZM10.8965 5.69628L8.88737 7.50456C8.74675 7.63087 8.66666 7.81087 8.66666 8C8.66666 8.18913 8.74675 8.36916 8.88737 8.49544L10.8965 10.3037C11.5977 10.9349 12 11.8382 12 12.7816V14H11.1665L8.26659 10.1335C8.14094 9.9655 7.85903 9.9655 7.73338 10.1335L4.8335 14H4V12.7816C4 11.8382 4.40234 10.9349 5.10353 10.3037L7.11266 8.49541C7.25328 8.36909 7.33337 8.18909 7.33337 7.99997C7.33337 7.81084 7.25328 7.63081 7.11266 7.50453L5.10353 5.69625C4.40234 5.06509 4 4.16178 4 3.21844V2H12V3.21844C12 4.16178 11.5977 5.06509 10.8965 5.69628Z"
+													fill="#e74142"
+												></path>
+												<path
+													d="M10.2976 4.66663H5.70219C5.57035 4.66663 5.45088 4.74444 5.3975 4.86488C5.34413 4.98566 5.36657 5.12628 5.45544 5.22394L7.7764 7.36522C7.83987 7.42285 7.91996 7.45147 8.00003 7.45147C8.08009 7.45147 8.16018 7.42281 8.22365 7.36522L10.5443 5.22394C10.6331 5.12628 10.6556 4.98566 10.6022 4.86488C10.5489 4.74444 10.4294 4.66663 10.2976 4.66663Z"
+													fill="#e74142"
+												></path>
+											</svg>
+											<p>Waiting for payment</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="participate-item">
+								<img
+									src="./assets/chart(1)"
+									alt=""
+									class="participate-qr"
+								/>
+								<div class="participate-data">
+									<p class="participate-title">
+										Send your <span>ETH</span> to the address for X2 back
+									</p>
+									<div class="participate-address">
+										<p>0x403e65f47Ce1B2908464A07E3C3A2a44c8eec123</p>
+										<svg
+											class="address-done"
+											width="14"
+											height="11"
+											viewBox="0 0 14 11"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M5.36089 10.7881C5.22721 10.9241 5.04493 11 4.8555 11C4.66607 11 4.48379 10.9241 4.35011 10.7881L0.314169 6.70344C-0.104723 6.27957 -0.104723 5.5924 0.314169 5.16926L0.819556 4.65787C1.23845 4.234 1.91682 4.234 2.33572 4.65787L4.8555 7.20759L11.6643 0.317902C12.0832 -0.105967 12.7623 -0.105967 13.1804 0.317902L13.6858 0.829295C14.1047 1.25316 14.1047 1.94033 13.6858 2.36347L5.36089 10.7881Z"
+												fill="#e74142"
+											></path>
+										</svg>
+									</div>
+									<div class="participate-footer">
+										<div
+											class="inline-block"
+											data-v-5784ed69=""
+											style="
+												border: 12px solid transparent;
+												margin: -12px;
+												--c81fc0a4: 9999;
+											"
+										>
+											<div data-v-5784ed69="">
+												<button
+													type="button"
+													class="participate-button"
+													data-v-5784ed69-s=""
+												>
+													Copy address
+												</button>
+											</div>
+											<div
+												class="popper"
+												data-v-5784ed69=""
+												style="display: none"
+											>
+												Copied!<!---->
+											</div>
+										</div>
+										<div class="participate-status">
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 16 16"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M13.3333 3.21844V1.81456C13.7299 1.58334 14 1.15809 14 0.666656V0.333344C14 0.149094 13.8509 0 13.6667 0H2.33334C2.14909 0 2 0.149094 2 0.333344V0.666687C2 1.15809 2.27006 1.58334 2.66666 1.81459V3.21844C2.66666 4.53941 3.22981 5.80372 4.21159 6.68719L5.67025 8L4.21159 9.31281C3.22981 10.1963 2.66666 11.4606 2.66666 12.7816V14.1854C2.27006 14.4167 2 14.8419 2 15.3333V15.6667C2 15.8509 2.14909 16 2.33334 16H13.6667C13.8509 16 14 15.8509 14 15.6667V15.3333C14 14.8419 13.73 14.4167 13.3334 14.1854V12.7816C13.3334 11.4606 12.7702 10.1963 11.7884 9.31281L10.3298 8L11.7884 6.68719C12.7702 5.80372 13.3333 4.53937 13.3333 3.21844ZM10.8965 5.69628L8.88737 7.50456C8.74675 7.63087 8.66666 7.81087 8.66666 8C8.66666 8.18913 8.74675 8.36916 8.88737 8.49544L10.8965 10.3037C11.5977 10.9349 12 11.8382 12 12.7816V14H11.1665L8.26659 10.1335C8.14094 9.9655 7.85903 9.9655 7.73338 10.1335L4.8335 14H4V12.7816C4 11.8382 4.40234 10.9349 5.10353 10.3037L7.11266 8.49541C7.25328 8.36909 7.33337 8.18909 7.33337 7.99997C7.33337 7.81084 7.25328 7.63081 7.11266 7.50453L5.10353 5.69625C4.40234 5.06509 4 4.16178 4 3.21844V2H12V3.21844C12 4.16178 11.5977 5.06509 10.8965 5.69628Z"
+													fill="#e74142"
+												></path>
+												<path
+													d="M10.2976 4.66663H5.70219C5.57035 4.66663 5.45088 4.74444 5.3975 4.86488C5.34413 4.98566 5.36657 5.12628 5.45544 5.22394L7.7764 7.36522C7.83987 7.42285 7.91996 7.45147 8.00003 7.45147C8.08009 7.45147 8.16018 7.42281 8.22365 7.36522L10.5443 5.22394C10.6331 5.12628 10.6556 4.98566 10.6022 4.86488C10.5489 4.74444 10.4294 4.66663 10.2976 4.66663Z"
+													fill="#e74142"
+												></path>
+											</svg>
+											<p>Waiting for payment</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="participate-item">
+								<img
+									src="./assets/chart(2)"
+									alt=""
+									class="participate-qr"
+								/>
+								<div class="participate-data">
+									<p class="participate-title">
+										Send your <span>DOGE</span> to the address for X2 back
+									</p>
+									<div class="participate-address">
+										<p>DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd</p>
+										<svg
+											class="address-done"
+											width="14"
+											height="11"
+											viewBox="0 0 14 11"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M5.36089 10.7881C5.22721 10.9241 5.04493 11 4.8555 11C4.66607 11 4.48379 10.9241 4.35011 10.7881L0.314169 6.70344C-0.104723 6.27957 -0.104723 5.5924 0.314169 5.16926L0.819556 4.65787C1.23845 4.234 1.91682 4.234 2.33572 4.65787L4.8555 7.20759L11.6643 0.317902C12.0832 -0.105967 12.7623 -0.105967 13.1804 0.317902L13.6858 0.829295C14.1047 1.25316 14.1047 1.94033 13.6858 2.36347L5.36089 10.7881Z"
+												fill="#e74142"
+											></path>
+										</svg>
+									</div>
+									<div class="participate-footer">
+										<div
+											class="inline-block"
+											data-v-5784ed69=""
+											style="
+												border: 12px solid transparent;
+												margin: -12px;
+												--c81fc0a4: 9999;
+											"
+										>
+											<div data-v-5784ed69="">
+												<button
+													type="button"
+													class="participate-button"
+													data-v-5784ed69-s=""
+												>
+													Copy address
+												</button>
+											</div>
+											<div
+												class="popper"
+												data-v-5784ed69=""
+												style="display: none"
+											>
+												Copied!<!---->
+											</div>
+										</div>
+										<div class="participate-status">
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 16 16"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M13.3333 3.21844V1.81456C13.7299 1.58334 14 1.15809 14 0.666656V0.333344C14 0.149094 13.8509 0 13.6667 0H2.33334C2.14909 0 2 0.149094 2 0.333344V0.666687C2 1.15809 2.27006 1.58334 2.66666 1.81459V3.21844C2.66666 4.53941 3.22981 5.80372 4.21159 6.68719L5.67025 8L4.21159 9.31281C3.22981 10.1963 2.66666 11.4606 2.66666 12.7816V14.1854C2.27006 14.4167 2 14.8419 2 15.3333V15.6667C2 15.8509 2.14909 16 2.33334 16H13.6667C13.8509 16 14 15.8509 14 15.6667V15.3333C14 14.8419 13.73 14.4167 13.3334 14.1854V12.7816C13.3334 11.4606 12.7702 10.1963 11.7884 9.31281L10.3298 8L11.7884 6.68719C12.7702 5.80372 13.3333 4.53937 13.3333 3.21844ZM10.8965 5.69628L8.88737 7.50456C8.74675 7.63087 8.66666 7.81087 8.66666 8C8.66666 8.18913 8.74675 8.36916 8.88737 8.49544L10.8965 10.3037C11.5977 10.9349 12 11.8382 12 12.7816V14H11.1665L8.26659 10.1335C8.14094 9.9655 7.85903 9.9655 7.73338 10.1335L4.8335 14H4V12.7816C4 11.8382 4.40234 10.9349 5.10353 10.3037L7.11266 8.49541C7.25328 8.36909 7.33337 8.18909 7.33337 7.99997C7.33337 7.81084 7.25328 7.63081 7.11266 7.50453L5.10353 5.69625C4.40234 5.06509 4 4.16178 4 3.21844V2H12V3.21844C12 4.16178 11.5977 5.06509 10.8965 5.69628Z"
+													fill="#e74142"
+												></path>
+												<path
+													d="M10.2976 4.66663H5.70219C5.57035 4.66663 5.45088 4.74444 5.3975 4.86488C5.34413 4.98566 5.36657 5.12628 5.45544 5.22394L7.7764 7.36522C7.83987 7.42285 7.91996 7.45147 8.00003 7.45147C8.08009 7.45147 8.16018 7.42281 8.22365 7.36522L10.5443 5.22394C10.6331 5.12628 10.6556 4.98566 10.6022 4.86488C10.5489 4.74444 10.4294 4.66663 10.2976 4.66663Z"
+													fill="#e74142"
+												></path>
+											</svg>
+											<p>Waiting for payment</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="participate-item">
+								<img
+									src="./assets/chart(4)"
+									alt=""
+									class="participate-qr"
+								/>
+								<div class="participate-data">
+									<p class="participate-title">
+										Send your <span>USDT</span> to the address for X2 back
+									</p>
+									<div class="participate-address">
+										<p>TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ</p>
+										<svg
+											class="address-done"
+											width="14"
+											height="11"
+											viewBox="0 0 14 11"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M5.36089 10.7881C5.22721 10.9241 5.04493 11 4.8555 11C4.66607 11 4.48379 10.9241 4.35011 10.7881L0.314169 6.70344C-0.104723 6.27957 -0.104723 5.5924 0.314169 5.16926L0.819556 4.65787C1.23845 4.234 1.91682 4.234 2.33572 4.65787L4.8555 7.20759L11.6643 0.317902C12.0832 -0.105967 12.7623 -0.105967 13.1804 0.317902L13.6858 0.829295C14.1047 1.25316 14.1047 1.94033 13.6858 2.36347L5.36089 10.7881Z"
+												fill="#e74142"
+											></path>
+										</svg>
+									</div>
+									<div class="participate-footer">
+										<div
+											class="inline-block"
+											data-v-5784ed69=""
+											style="
+												border: 12px solid transparent;
+												margin: -12px;
+												--c81fc0a4: 9999;
+											"
+										>
+											<div data-v-5784ed69="">
+												<button
+													type="button"
+													class="participate-button"
+													data-v-5784ed69-s=""
+												>
+													Copy address
+												</button>
+											</div>
+											<div
+												class="popper"
+												data-v-5784ed69=""
+												style="display: none"
+											>
+												Copied!<!---->
+											</div>
+										</div>
+										<div class="participate-status">
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 16 16"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M13.3333 3.21844V1.81456C13.7299 1.58334 14 1.15809 14 0.666656V0.333344C14 0.149094 13.8509 0 13.6667 0H2.33334C2.14909 0 2 0.149094 2 0.333344V0.666687C2 1.15809 2.27006 1.58334 2.66666 1.81459V3.21844C2.66666 4.53941 3.22981 5.80372 4.21159 6.68719L5.67025 8L4.21159 9.31281C3.22981 10.1963 2.66666 11.4606 2.66666 12.7816V14.1854C2.27006 14.4167 2 14.8419 2 15.3333V15.6667C2 15.8509 2.14909 16 2.33334 16H13.6667C13.8509 16 14 15.8509 14 15.6667V15.3333C14 14.8419 13.73 14.4167 13.3334 14.1854V12.7816C13.3334 11.4606 12.7702 10.1963 11.7884 9.31281L10.3298 8L11.7884 6.68719C12.7702 5.80372 13.3333 4.53937 13.3333 3.21844ZM10.8965 5.69628L8.88737 7.50456C8.74675 7.63087 8.66666 7.81087 8.66666 8C8.66666 8.18913 8.74675 8.36916 8.88737 8.49544L10.8965 10.3037C11.5977 10.9349 12 11.8382 12 12.7816V14H11.1665L8.26659 10.1335C8.14094 9.9655 7.85903 9.9655 7.73338 10.1335L4.8335 14H4V12.7816C4 11.8382 4.40234 10.9349 5.10353 10.3037L7.11266 8.49541C7.25328 8.36909 7.33337 8.18909 7.33337 7.99997C7.33337 7.81084 7.25328 7.63081 7.11266 7.50453L5.10353 5.69625C4.40234 5.06509 4 4.16178 4 3.21844V2H12V3.21844C12 4.16178 11.5977 5.06509 10.8965 5.69628Z"
+													fill="#e74142"
+												></path>
+												<path
+													d="M10.2976 4.66663H5.70219C5.57035 4.66663 5.45088 4.74444 5.3975 4.86488C5.34413 4.98566 5.36657 5.12628 5.45544 5.22394L7.7764 7.36522C7.83987 7.42285 7.91996 7.45147 8.00003 7.45147C8.08009 7.45147 8.16018 7.42281 8.22365 7.36522L10.5443 5.22394C10.6331 5.12628 10.6556 4.98566 10.6022 4.86488C10.5489 4.74444 10.4294 4.66663 10.2976 4.66663Z"
+													fill="#e74142"
+												></path>
+											</svg>
+											<p>Waiting for payment</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="transaction" id="transaction">
+						<div class="transaction-title">
+							<div class="transaction-title_live">
+								<div class="dot"><div></div></div>
+								<p>LIVE</p>
+							</div>
+						</div>
+						<div class="transaction-container">
+							<div class="transaction-header">
+								<p class="txhash">TxHash</p>
+								<p class="from">From</p>
+								<div class="arrow"></div>
+								<p class="to">To</p>
+								<p class="value">Value</p>
+								<p class="fee">Fee</p>
+								<p class="status">Status</p>
+							</div>
+							<div class="transaction-content">
+								<div class="transaction-item">
+									<p class="txhash">b44457FBdD6Affa90f28faAfdDE7ff28</p>
+									<p class="from">
+										DUDLLg7BxXjdpPFY9tctF5Qt <br />
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd <br />
+										DUDLLg7BxXjdpPFY9tctF5Qt
+									</p>
+									<p class="value">
+										65,269 DOGE <br />
+										130,537 DOGE
+									</p>
+									<p class="fee">
+										<br />
+										0.1305
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">0d2B46a7Bc6BcfF0D7e95e6C79862d8F</p>
+									<p class="from">
+										TXSdA3AYygF45DsqFLiudvxb <br />
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ <br />
+										TXSdA3AYygF45DsqFLiudvxb
+									</p>
+									<p class="value">
+										6,177 USDT <br />
+										12,354 USDT
+									</p>
+									<p class="fee">
+										<br />
+										0.0124
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">d90aA40Cfbccd98addcf6d319Cfd748B</p>
+									<p class="from">
+										D9jkJDkMSpn3RokUX85Zs1KE <br />
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd <br />
+										D9jkJDkMSpn3RokUX85Zs1KE
+									</p>
+									<p class="value">
+										503,057 DOGE <br />
+										1,006,115 DOGE
+									</p>
+									<p class="fee">
+										<br />
+										1.0061
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">b2Eb9520FfF012f569fF11550bEC7da3</p>
+									<p class="from">
+										TYhmmQwHX7Yh6AMNDDc9mb9F <br />
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ <br />
+										TYhmmQwHX7Yh6AMNDDc9mb9F
+									</p>
+									<p class="value">
+										9,980 USDT <br />
+										19,960 USDT
+									</p>
+									<p class="fee">
+										<br />
+										0.02
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">c240EB0791DfF6F7f00EE6A857f1Aa6C</p>
+									<p class="from">
+										rnlFOCnnQbtRqryDsvONAfRL <br />
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722 <br />
+										rnlFOCnnQbtRqryDsvONAfRL
+									</p>
+									<p class="value">
+										3.042 BTC <br />
+										6.085 BTC
+									</p>
+									<p class="fee">
+										<br />
+										0.000608
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">0xCaaCE635Da479fBADA3D7b8cAB9fd0Ce</p>
+									<p class="from">
+										0xeda7bd82aa45cb6f6ddc92 <br />
+										0x403e65f47Ce1B2908464A07E3C3A2a44c8eec123
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										0x403e65f47Ce1B2908464A07E3C3A2a44c8eec123 <br />
+										0xeda7bd82aa45cb6f6ddc92
+									</p>
+									<p class="value">
+										25.739 ETH <br />
+										51.477 ETH
+									</p>
+									<p class="fee">
+										<br />
+										0.0051
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">c67B627E8b57989aeeffEe5bA3FAe08A</p>
+									<p class="from">
+										TNoWVskzCfG9HaFyQ3uzLjQN <br />
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										TMKnQiWVDN9fWmkZLcxea5YYz6TSnYdPzJ <br />
+										TNoWVskzCfG9HaFyQ3uzLjQN
+									</p>
+									<p class="value">
+										5,376 USDT <br />
+										10,752 USDT
+									</p>
+									<p class="fee">
+										<br />
+										0.0108
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">9fDAfdd7C1cBaa4D4bFEdd92AF9deC0e</p>
+									<p class="from">
+										TuewgEsECzzAI4GCHYd1TGPV <br />
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722 <br />
+										TuewgEsECzzAI4GCHYd1TGPV
+									</p>
+									<p class="value">
+										2.379 BTC <br />
+										4.758 BTC
+									</p>
+									<p class="fee">
+										<br />
+										0.000476
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">6AFBbAFcFc9aF0f48de12aBaE91384cd</p>
+									<p class="from">
+										D5xLgFLxkaBhyqgCtQ5hPusA <br />
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										DUKQQ4gQ1feTWQJgALGk8CHyiC7TMkdVqd <br />
+										D5xLgFLxkaBhyqgCtQ5hPusA
+									</p>
+									<p class="value">
+										172,337 DOGE <br />
+										344,674 DOGE
+									</p>
+									<p class="fee">
+										<br />
+										0.3447
+									</p>
+									<p class="status">Completed</p>
+								</div>
+								<div class="transaction-item">
+									<p class="txhash">C15cACDb0E6FA190EA25A5DF3f67BDeA</p>
+									<p class="from">
+										Ryz9YxM2MBGWTrM7Xgi8qYcd <br />
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722
+									</p>
+									<div class="arrow">
+										<img src="./assets/119783b3.svg" alt="" />
+									</div>
+									<p class="to">
+										bc1q8r804kg2pcu9g669ydh5r2xae9jsd28tnur722 <br />
+										Ryz9YxM2MBGWTrM7Xgi8qYcd
+									</p>
+									<p class="value">
+										6.189 BTC <br />
+										12.378 BTC
+									</p>
+									<p class="fee">
+										<br />
+										0.001238
+									</p>
+									<p class="status">Completed</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</main>
+				<footer class="navigation">
+					<div class="navigation-container">
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKcAAAA9CAYAAADI63nJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIyLTA0LTEyVDA0OjIzOjI2KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMi0wNC0xNFQxNjoxNzoyOCswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMi0wNC0xNFQxNjoxNzoyOCswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpkNzJkNjIyMy0xZTBmLTQ1NDgtOWM5Ny1jYWEyNmVjNmI2ODMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDplYzU5Y2Y3YS1hZWIxLTIzNDgtYTc4OC03NWU2NzU0ODI2OWQiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZDkwYjFhMC02MWQ2LWUwNDItODMxNy04YTEzMGJjNDc0ZTgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjFkOTBiMWEwLTYxZDYtZTA0Mi04MzE3LThhMTMwYmM0NzRlOCIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0xMlQwNDoyMzoyNiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpkNzJkNjIyMy0xZTBmLTQ1NDgtOWM5Ny1jYWEyNmVjNmI2ODMiIHN0RXZ0OndoZW49IjIwMjItMDQtMTRUMTY6MTc6MjgrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HTQ7iAAAGrklEQVR4nO2dW4xdUxjHf/tMW6VNtUU7epFWo6VE3OpajKchQkNdXogHDQ88IC696EMJRUXiAQ9SIQgSiohmlDBRbYhUazq0peht9GJqpkZvc1sevr1z9hx777P2ZXr2zPl+yc7ZZ+9vr7XOnP/59lrf+tYexxiDouSRQqUboChhqDiV3KLiVHKLilPJLSpOJbeoOJXcouJUcouKU8ktKk4lt6g4ldyi4lRyyxALm9HABETIlwNdQC9wGjDN3Q+jBtgKbHf3u4Em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"
+							alt=""
+							class="navigation-logo"
+						/><a
+							href="#participate"
+							class="router-link-active router-link-exact-active navigation-participate"
+							aria-current="page"
+						>
+							Participate →
+						</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+    <script>
+      function calculator() {
+        const input = document.querySelector('.calculator-input input');
+        const number = document.querySelector('#calculator_number');
+
+        input.value = 0.1;
+        calculate(0.1);
+        
+        input.addEventListener('input', () => {
+          let value = input.value;
+          
+          calculate(value);
+
+        })
+
+        function calculate(value) {
+          if (value[0] == '.') {
+            input.value = value.replace('.', '');
+          }
+          if (/\D/.test(value) && !/\./.test(value)) {
+            input.value = value.replace(/\D/, '');
+          } else {
+            const result = +input.value * 200;
+            number.textContent = result;
+          }
+        }
+      }
+
+      calculator();
+     
+      function copyAddress() {
+        const buttons = document.querySelectorAll('.participate-button');
+
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const parent = button.closest('.participate-item');
+            const text = parent.querySelector('.participate-address p').textContent;
+            copyContent(text, button);
+          });
+        })
+
+
+        const copyContent = async (text, button) => {
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = 'Copied';
+            setTimeout(() => {
+              button.textContent = 'Copy address';
+            }, 500);
+            console.log('Content copied to clipboard');
+          } catch (err) {
+            button.textContent = 'Copy failed';
+            setTimeout(() => {
+              button.textContent = 'Copy address';
+            }, 500);
+            console.error('Failed to copy: ', err);
+          }
+        }
+      }
+      
+      copyAddress();
+    </script>
+	</body>
+</html>
